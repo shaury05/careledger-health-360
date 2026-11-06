@@ -1,5 +1,6 @@
 # CareLedger & PharmPulse 360: CMS Medicare Claims, PBM Experimentation & Payment Integrity Engine
 **End-to-End Healthcare Data Science, Causal Inference & Analytics Platform**  
+**[Click Here to Launch Live 24/7 Interactive Streamlit App](https://careledger-health-360-bl28ojgwquyhh9x74atgdk.streamlit.app)**  
 *Built with Official U.S. CMS.gov Medicare Claims API, OpenFDA Adverse Events API, PostgreSQL 16, dbt SQL, PySpark, Statsmodels/Lifelines, Optuna Calibrated Gradient Boosting, PyTorch (MPS), TreeSHAP, Apache Airflow, FastAPI, Tableau & Streamlit.*
 
 ---
@@ -30,7 +31,7 @@ Healthcare payors, Pharmacy Benefit Managers (PBMs), and payment integrity teams
 | **Multiple Linear Regression** | OLS with Huber-White (HC3) Robust SEs | R^2 = 0.6414, Max Feature VIF = 1.687 | Zero multicollinearity (VIF < 5.0); robust to heteroscedasticity |
 | **Overdispersed Count Model** | Negative Binomial GLM | IRR = exp(beta) = 1.2626 (p < 0.0001) | Each unit increase in billing markup raises denial appeals by 26.3% |
 | **Time-to-Discontinuation** | Cox Proportional Hazards Survival Model | Hazard Ratio (HR) = 1.583 (p < 0.0001) | High charge-to-allowed markup accelerates discontinuation by 58.3% |
-| **PBM Prior-Auth A/B Test** | Chi-Square SRM Check + CUPED | SRM p = 0.8446 (Pass) | Lift = +5.80% | AI Auto-Adjudication boosts 30-day approval from 65.59% to 71.26% |
+| **PBM Prior-Auth A/B Test** | Chi-Square SRM Check + CUPED | SRM p = 0.8446 (Pass), Lift = +5.80% | AI Auto-Adjudication boosts 30-day approval from 65.59% to 71.26% |
 | **Observational Causal AI** | Nearest-Neighbor Propensity Score Matching | Naive: +$191.60 -> PSM ATT: +$165.00 | Removes +$26.60 selection bias to recover true 90d savings |
 | **Longitudinal Forecasting** | Holt-Winters Exponential Smoothing | Next 3Q: $4.01M, $4.08M, $4.16M | Captures quarterly Medicare allowed spend trajectory across 8 quarters |
 
@@ -41,7 +42,7 @@ Healthcare payors, Pharmacy Benefit Managers (PBMs), and payment integrity teams
 | **Optuna-Tuned Gradient Boosting** | Test Set ROC-AUC / PR-AUC | **0.9013 / 0.8062** | Primary 60-day claim audit & upcoding risk classifier |
 | **Isotonic Probability Calibration** | Brier Score Loss (Before -> After) | **0.1066 -> 0.0793** | Calibrates raw log-odds into true actuarial audit probabilities |
 | **Multimodal PyTorch + OpenFDA PCA** | Test Set ROC-AUC / PR-AUC (Apple MPS GPU) | **0.8666 / 0.8202** | Combines 4 PCA clinical adverse event components with tabular claims |
-| **Global Explainability (TreeSHAP)** | Top 3 Mean |SHAP| Drivers | Markup (1.308), Appeals (0.247), Services (0.197) | Provides transparent audit reason codes for clinical review teams |
+| **Global Explainability (TreeSHAP)** | Top 3 Mean Abs(SHAP) Drivers | Markup (1.308), Appeals (0.247), Services (0.197) | Provides transparent audit reason codes for clinical review teams |
 | **Production Drift Monitor (PSI)** | Population Stability Index | **PSI = 0.5121** (Threshold = 0.2000) | Automatically flags post-policy billing shifts and triggers retraining |
 
 ---
