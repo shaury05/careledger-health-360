@@ -1,0 +1,8 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+.airflow*
+logs/
+data/raw/*.csv
+data/processed/mart_careledger_claims_360.csv

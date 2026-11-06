@@ -1,0 +1,16 @@
+services:
+  postgres_health:
+    image: postgres:16-alpine
+    container_name: careledger_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ds_admin
+      POSTGRES_PASSWORD: ds_password_2026
+      POSTGRES_DB: careledger_dw
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_health_data:/var/lib/postgresql/data
+
+volumes:
+  pg_health_data:

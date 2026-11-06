@@ -1,0 +1,12 @@
+numpy
+pandas
+scipy
+scikit-learn
+statsmodels
+lifelines
+optuna
+shap
+streamlit
+plotly
+matplotlib
+seaborn
